@@ -1,0 +1,9 @@
+.square-wrapper {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    max-width: 460px;
+    max-height: 460px;
+    box-sizing: border-box;
+    padding: 40px;
+}

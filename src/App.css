@@ -1,0 +1,7 @@
+#root {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+  font-family: Inter Tight,sans-serif;
+}

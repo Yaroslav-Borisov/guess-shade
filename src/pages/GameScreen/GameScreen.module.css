@@ -1,0 +1,15 @@
+.game-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.title {
+    font-size: 28px;
+}
+
+.timer {
+    font-size: 18px;
+}
