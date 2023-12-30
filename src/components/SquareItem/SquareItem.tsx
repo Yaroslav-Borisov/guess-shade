@@ -20,12 +20,17 @@ export function SquareItem({color, opacity, guesses, setGuesses}: SquareItemProp
 			if (event.target.getAttribute('data-name') === Opacity.Special) {
 				setGuesses(guesses + 1);
 				dispatch(levelActions.setNextLevel());
-
 			}
 		}
 	};
 
 	return (
-		<div className={styles['square-item']} style={{backgroundColor: color, opacity: `${opacity}`}} data-name={opacity === 1 ? Opacity.Special : Opacity.Special} onClick={clickHandler}></div>
+		<div 
+			className={styles['square-item']} 
+			style={{backgroundColor: color, opacity: `${opacity}`}} 
+			data-name={opacity === 1 ? Opacity.Ordinary : Opacity.Special} 
+			onClick={clickHandler}
+		>
+		</div>
 	);
 }

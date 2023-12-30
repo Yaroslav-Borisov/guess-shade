@@ -2,26 +2,27 @@ import { SquareItem } from '../SquareItem/SquareItem';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './SquareWrapper.module.css';
 import { AppDispatch, RootState } from '../../store/store';
-import { getRandomColor} from '../../utils';
+import { getItems, getRandomColor} from '../../utils';
 import { useState, useEffect } from 'react';
 import { GUESSES } from '../../consts';
 import { sizeActions } from '../../store/size.slice';
+import { opacityActions } from '../../store/opacity.slice';
 
 
 export function SquareWrapper() {
 	const dispatch = useDispatch<AppDispatch>();
 	const size = useSelector((state: RootState) => state.size.size);
-	const [guessesNumber, setGuessesNumber] = useState(0);
+	const opacity = useSelector((state: RootState) => state.opacity.opacity);
+	const [guessesNumber, setGuessesNumber] = useState(2);
 
-	const items = new Array(Math.pow((size), 2)).fill(null).map(() => 1);
-	items[Math.floor(Math.random() * items.length)] = 0.6;
+	const items = getItems(size, opacity);
 	const randomColor = getRandomColor();
 
 	useEffect(() => {
 		if (guessesNumber === GUESSES) {
 			setGuessesNumber(0);
+			dispatch(opacityActions.setNewOpacity());
 			dispatch(sizeActions.setNewSize(size + 1));
-
 		}
 	}, [guessesNumber]);
 
