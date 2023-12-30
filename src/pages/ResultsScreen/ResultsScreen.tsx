@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import styles from './ResultsScreen.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../store/store';
@@ -6,6 +5,8 @@ import { levelActions } from '../../store/level.slice';
 import { timerActions } from '../../store/timer.slice';
 import { sizeActions } from '../../store/size.slice';
 import { opacityActions } from '../../store/opacity.slice';
+import { Button } from '../../components/Button/Button';
+import { Paths } from '../../consts';
 
 export function ResultsScreen() {
 	const dispatch = useDispatch<AppDispatch>();
@@ -26,7 +27,8 @@ export function ResultsScreen() {
 				<br/>
 				<span className={styles['record']}>Record {record}</span>
 			</h1>
-			<Link to="/" className={styles['button']} onClick={resetState}>Play again</Link>
+			{/* <Link to="/" className={styles['button']} onClick={resetState}>Play again</Link> */}
+			<Button title={'Play again'} path={Paths.Start} onClick={resetState}/>
 		</div>
 	);
 }

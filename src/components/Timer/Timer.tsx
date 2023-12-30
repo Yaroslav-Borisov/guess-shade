@@ -14,7 +14,7 @@ export function Timer() {
 	const time = useSelector((state: RootState) => state.timer.time);
 
 	useEffect(() => {
-		if (time === 50) {
+		if (time === 0) {
 			dispatch(levelActions.setNewRecord());
 			dispatch(timerActions.stopTimer());
 			navigate(Paths.Results);

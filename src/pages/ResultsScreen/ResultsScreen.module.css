@@ -10,11 +10,11 @@
     font-size: 44px;
     line-height: 1.4;
     text-align: center;
+    color: #ffffff;
 }
 
 .record {
-    opacity: 0.5;
-    color: red;
+    color: #62bd4a;
     font-size: 34px;
 }
 
