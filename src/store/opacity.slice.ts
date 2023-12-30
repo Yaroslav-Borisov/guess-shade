@@ -14,6 +14,9 @@ export const opacitySlice = createSlice({
 	reducers: {
 		setNewOpacity: (state) => {
 			state.opacity = state.opacity + (state.opacity * 0.05);
+		},
+		resetOpacity: (state) => {
+			state.opacity = 0.6;
 		}
 	}
 });

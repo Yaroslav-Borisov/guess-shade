@@ -3,10 +3,12 @@ import { GAME_TIME } from '../consts';
 
 interface TimerState {
     time: number,
+	timerId: any
 }
 
 const initialState: TimerState = {
-	time: GAME_TIME
+	time: GAME_TIME,
+	timerId: 0
 };
 
 export const timerSlice = createSlice({
@@ -14,7 +16,20 @@ export const timerSlice = createSlice({
 	initialState: initialState,
 	reducers: {
 		decreaseTime: (state) => {
-			state.time = state.time - 1;
+			if (state.time === 0) {
+				clearInterval(state.timerId);
+			} else {
+				state.time = state.time - 1;
+			}
+		},
+		resetTime: (state) => {
+			state.time = GAME_TIME;
+		},
+		setTimerId: (state, action) => {
+			state.timerId = action.payload;
+		},
+		stopTimer: (state) => {
+			clearInterval(state.timerId);
 		}
 	}
 });

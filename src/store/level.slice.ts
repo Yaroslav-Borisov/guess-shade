@@ -2,10 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 
 interface LevelState {
     level: number,
+	record: number
 }
 
 const initialState: LevelState = {
-	level: 1
+	level: 1,
+	record: 0
 };
 
 export const levelSlice = createSlice({
@@ -14,6 +16,14 @@ export const levelSlice = createSlice({
 	reducers: {
 		setNextLevel: (state) => {
 			state.level = state.level + 1;
+		},
+		resetLevel: (state) => {
+			state.level = 1;
+		},
+		setNewRecord: (state) => {
+			if (state.level > state.record) {
+				state.record = state.level;
+			}
 		}
 	}
 });

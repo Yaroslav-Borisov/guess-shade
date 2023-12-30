@@ -14,6 +14,9 @@ export const sizeSlice = createSlice({
 	reducers: {
 		setNewSize: (state, action: PayloadAction<number>) => {
 			state.size = action.payload;
+		},
+		resetSize: (state) => {
+			state.size = 2;
 		}
 	}
 });

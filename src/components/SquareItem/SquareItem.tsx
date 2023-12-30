@@ -3,8 +3,6 @@ import styles from './SquareItem.module.css';
 import { AppDispatch } from '../../store/store';
 import { levelActions } from '../../store/level.slice';
 import { Opacity } from '../../consts';
-
-
 interface SquareItemProps {
     color: string,
     opacity: number,

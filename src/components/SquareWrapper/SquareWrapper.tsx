@@ -7,10 +7,12 @@ import { useState, useEffect } from 'react';
 import { GUESSES } from '../../consts';
 import { sizeActions } from '../../store/size.slice';
 import { opacityActions } from '../../store/opacity.slice';
+import { timerActions } from '../../store/timer.slice';
 
 
 export function SquareWrapper() {
 	const dispatch = useDispatch<AppDispatch>();
+	const level = useSelector((state: RootState) => state.level.level);
 	const size = useSelector((state: RootState) => state.size.size);
 	const opacity = useSelector((state: RootState) => state.opacity.opacity);
 	const [guessesNumber, setGuessesNumber] = useState(2);
@@ -26,6 +28,18 @@ export function SquareWrapper() {
 		}
 	}, [guessesNumber]);
 
+	useEffect(() => {
+		const timerId = setInterval(() => {
+			if (level === 2) {
+				dispatch(timerActions.decreaseTime());
+			} 
+		}, 1000);
+		
+		if (level === 2) {
+			dispatch(timerActions.setTimerId(timerId));
+		}
+	}, [level]);
+
 
 	return (
 		<div className={styles['square-wrapper']} style={{
@@ -35,7 +49,14 @@ export function SquareWrapper() {
 			width: '460px', 
 			height: '460px'}}
 		>
-			{items.map((opacity, index) => <SquareItem color={randomColor} opacity={opacity} guesses={guessesNumber} setGuesses={setGuessesNumber} key={index}/>	)}
+			{items.map((opacity, index) => 
+				<SquareItem 
+					color={randomColor} 
+					opacity={opacity} 
+					guesses={guessesNumber} 
+					setGuesses={setGuessesNumber} 
+					key={index}
+				/>)}
 		</div>
 	);
 }

@@ -6,7 +6,6 @@ import { GameScreen } from './pages/GameScreen/GameScreen';
 import { ResultsScreen } from './pages/ResultsScreen/ResultsScreen';
 
 function App() {
-
 	return (
 		<Routes>
 			<Route path={Paths.Start} element={<StartScreen />}></Route>

@@ -3,6 +3,7 @@ import styles from './StartScreen.module.css';
 import { Paths } from '../../consts';
 
 export function StartScreen() {
+
 	return (
 		<div className={styles['start-screen']}>
 			<h1 className={styles['title']}>Guess sh<span className={styles['pale-letter']}>a</span>de</h1>
