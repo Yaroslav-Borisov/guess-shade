@@ -1,0 +1,30 @@
+.results-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    margin: 0 20px 30px;
+    font-size: 44px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.record {
+    opacity: 0.5;
+    color: red;
+    font-size: 34px;
+}
+
+.button {
+    padding: 10px 15px;
+    font-weight: 700;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    background: none;
+    border: 2px solid #000;
+    border-radius: 10px;
+}
