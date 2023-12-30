@@ -3,7 +3,7 @@ export const getRandomNumber = (min: number, max: number): number => {
 };
 
 export const getRandomColor = () => {
-	return `rgb(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255})`;
+	return `rgb(${Math.random()*255}, ${180}, ${Math.random()*255})`;
 };
 
 export const getItems = (size: number, opacity: number) => {
