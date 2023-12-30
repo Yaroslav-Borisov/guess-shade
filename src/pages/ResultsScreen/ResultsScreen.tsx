@@ -27,8 +27,9 @@ export function ResultsScreen() {
 				<br/>
 				<span className={styles['record']}>Record {record}</span>
 			</h1>
-			{/* <Link to="/" className={styles['button']} onClick={resetState}>Play again</Link> */}
-			<Button title={'Play again'} path={Paths.Start} onClick={resetState}/>
+			<div onClick={resetState}>
+				<Button title={'Play again'} path={Paths.Start}/>
+			</div>
 		</div>
 	);
 }

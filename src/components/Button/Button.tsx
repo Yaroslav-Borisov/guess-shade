@@ -4,11 +4,15 @@ import styles from './Button.module.css';
 interface ButtonProps {
     title: string,
     path: string,
-    onClick?: () => void
 }
 
 export function Button({title, path}: ButtonProps) {
 	return (
-		<Link className={styles['glow-on-hover']} to={path} onClick={() => onclick}>{title}</Link>
+		<Link 
+			className={styles['glow-on-hover']} 
+			to={path} 
+		>
+			{title}
+		</Link>
 	);
 }
